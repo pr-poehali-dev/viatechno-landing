@@ -568,11 +568,15 @@ const Footer = () => {
             <div className="space-y-2 text-gray-400">
               <div className="flex items-center gap-2">
                 <Icon name="Mail" size={16} className="text-[#F97316]" />
-                invest@viatechno.ru
+                <a href="mailto:iv@novtm.ru" className="hover:text-[#F97316] transition-colors">
+                  iv@novtm.ru
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="Phone" size={16} className="text-[#F97316]" />
-                +7 (999) 123-45-67
+                <a href="tel:+79658078786" className="hover:text-[#F97316] transition-colors">
+                  +7 (965) 807-87-86
+                </a>
               </div>
             </div>
           </div>
