@@ -47,7 +47,14 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1A1F2C] via-[#2A2F3C] to-[#1A1F2C]" />
+      <div className="absolute inset-0">
+        <img 
+          src="https://cdn.poehali.dev/projects/ff25991c-513b-4ca3-a78d-33313ffa689e/files/85902e73-6cf7-4a7f-acf3-19685efc90bd.jpg" 
+          alt="Вездеход" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1A1F2C]/90 via-[#2A2F3C]/85 to-[#1A1F2C]/90" />
+      </div>
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#F97316] rounded-full blur-[120px]" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F97316] rounded-full blur-[150px]" />
@@ -133,6 +140,13 @@ const Problem = () => {
           </div>
 
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <div className="relative overflow-hidden rounded-lg mb-6">
+              <img 
+                src="https://cdn.poehali.dev/projects/ff25991c-513b-4ca3-a78d-33313ffa689e/files/79b4bbee-cf86-476f-aca1-36e67d5b9705.jpg" 
+                alt="Производственный цех" 
+                className="w-full h-64 object-cover"
+              />
+            </div>
             <Card className="bg-gradient-to-br from-[#F97316]/20 to-[#F97316]/5 border-[#F97316]/30 p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-14 h-14 bg-[#F97316] rounded-lg flex items-center justify-center">
@@ -193,6 +207,14 @@ const Synergy = () => {
           </p>
         </div>
 
+        <div className="mb-12">
+          <img 
+            src="https://cdn.poehali.dev/projects/ff25991c-513b-4ca3-a78d-33313ffa689e/files/79b4bbee-cf86-476f-aca1-36e67d5b9705.jpg" 
+            alt="Производственный цех завода" 
+            className="w-full max-w-5xl mx-auto h-96 object-cover rounded-xl border border-[#F97316]/30"
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <Card 
@@ -220,7 +242,8 @@ const Products = () => {
       price: "600 тыс. ₽",
       description: "Шасси для доработки под ваши задачи",
       features: ["Рама и подвеска", "Двигатель 15 л.с.", "Гарантия 1 год", "Документы в комплекте"],
-      icon: "Wrench"
+      icon: "Wrench",
+      image: "https://cdn.poehali.dev/projects/ff25991c-513b-4ca3-a78d-33313ffa689e/files/938e0188-bfaa-494d-a676-9a9e82cae277.jpg"
     },
     {
       name: "ВИА-СТАНДАРТ",
@@ -228,14 +251,16 @@ const Products = () => {
       description: "Готовый вездеход для работы и отдыха",
       features: ["Полная комплектация", "Двигатель 25 л.с.", "Гарантия 2 года", "Сервисное обслуживание"],
       icon: "Truck",
-      featured: true
+      featured: true,
+      image: "https://cdn.poehali.dev/projects/ff25991c-513b-4ca3-a78d-33313ffa689e/files/85902e73-6cf7-4a7f-acf3-19685efc90bd.jpg"
     },
     {
       name: "ВИА-ПРОФИ",
       price: "1.4 млн ₽",
       description: "Для профессионалов и экстремальных условий",
       features: ["Усиленная конструкция", "Двигатель 40 л.с.", "Гарантия 3 года", "Расширенная комплектация"],
-      icon: "Zap"
+      icon: "Zap",
+      image: "https://cdn.poehali.dev/projects/ff25991c-513b-4ca3-a78d-33313ffa689e/files/85902e73-6cf7-4a7f-acf3-19685efc90bd.jpg"
     }
   ];
 
@@ -256,43 +281,54 @@ const Products = () => {
           {products.map((product, index) => (
             <Card 
               key={index}
-              className={`p-8 ${product.featured 
+              className={`overflow-hidden ${product.featured 
                 ? 'bg-gradient-to-br from-[#F97316] to-[#ea6a0f] border-[#F97316] transform scale-105' 
                 : 'bg-[#2A2F3C]/50 border-[#8E9196]/20'} hover:transform hover:scale-110 transition-all duration-300 animate-slide-up`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className={`w-16 h-16 ${product.featured ? 'bg-white/20' : 'bg-[#F97316]/10'} rounded-lg flex items-center justify-center mb-6`}>
-                <Icon name={product.icon as any} size={32} className={product.featured ? 'text-white' : 'text-[#F97316]'} />
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className={`absolute inset-0 ${product.featured ? 'bg-gradient-to-t from-[#F97316] via-[#F97316]/50 to-transparent' : 'bg-gradient-to-t from-[#2A2F3C] via-[#2A2F3C]/50 to-transparent'}`} />
               </div>
               
-              <h3 className={`text-2xl font-bold mb-2 ${product.featured ? 'text-white' : 'text-white'}`}>
-                {product.name}
-              </h3>
-              
-              <div className={`text-4xl font-bold mb-4 ${product.featured ? 'text-white' : 'text-[#F97316]'}`}>
-                {product.price}
+              <div className="p-8">
+                <div className={`w-16 h-16 ${product.featured ? 'bg-white/20' : 'bg-[#F97316]/10'} rounded-lg flex items-center justify-center mb-6`}>
+                  <Icon name={product.icon as any} size={32} className={product.featured ? 'text-white' : 'text-[#F97316]'} />
+                </div>
+                
+                <h3 className={`text-2xl font-bold mb-2 ${product.featured ? 'text-white' : 'text-white'}`}>
+                  {product.name}
+                </h3>
+                
+                <div className={`text-4xl font-bold mb-4 ${product.featured ? 'text-white' : 'text-[#F97316]'}`}>
+                  {product.price}
+                </div>
+                
+                <p className={`mb-6 ${product.featured ? 'text-white/90' : 'text-gray-400'}`}>
+                  {product.description}
+                </p>
+                
+                <ul className="space-y-3 mb-8">
+                  {product.features.map((feature, idx) => (
+                    <li key={idx} className={`flex items-center gap-3 ${product.featured ? 'text-white' : 'text-gray-300'}`}>
+                      <Icon name="CheckCircle2" size={20} className={product.featured ? 'text-white' : 'text-[#F97316]'} />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  className={`w-full ${product.featured 
+                    ? 'bg-white text-[#F97316] hover:bg-gray-100' 
+                    : 'bg-[#F97316] text-white hover:bg-[#ea6a0f]'}`}
+                >
+                  Запросить детали
+                </Button>
               </div>
-              
-              <p className={`mb-6 ${product.featured ? 'text-white/90' : 'text-gray-400'}`}>
-                {product.description}
-              </p>
-              
-              <ul className="space-y-3 mb-8">
-                {product.features.map((feature, idx) => (
-                  <li key={idx} className={`flex items-center gap-3 ${product.featured ? 'text-white' : 'text-gray-300'}`}>
-                    <Icon name="CheckCircle2" size={20} className={product.featured ? 'text-white' : 'text-[#F97316]'} />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              
-              <Button 
-                className={`w-full ${product.featured 
-                  ? 'bg-white text-[#F97316] hover:bg-gray-100' 
-                  : 'bg-[#F97316] text-white hover:bg-[#ea6a0f]'}`}
-              >
-                Запросить детали
-              </Button>
             </Card>
           ))}
         </div>
