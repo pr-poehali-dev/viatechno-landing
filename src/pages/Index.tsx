@@ -40,9 +40,9 @@ const Hero = () => {
       }, 16);
     };
 
-    animateNumber(50, setInvestment);
+    animateNumber(100, setInvestment);
     animateNumber(49, setShare);
-    animateNumber(400, setRevenue);
+    animateNumber(320, setRevenue);
   }, []);
 
   return (
@@ -64,7 +64,7 @@ const Hero = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-          Инвестируйте 50 млн ₽ за 49%. Выход на 10 млн ₽/мес через 90 дней
+          Инвестируйте 100 млн ₽ за 49%. Выход на 320 млн ₽ выручки за 2 года
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
@@ -527,7 +527,7 @@ const InvestorForm = () => {
                 <Label htmlFor="amount" className="text-gray-300">Интересующая сумма инвестиций</Label>
                 <Input 
                   id="amount" 
-                  placeholder="50 млн ₽" 
+                  placeholder="100 млн ₽" 
                   className="bg-[#141821] border-[#8E9196]/20 text-white mt-2"
                 />
               </div>
